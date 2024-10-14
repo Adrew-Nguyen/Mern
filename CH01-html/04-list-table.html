@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bài 4: List và table</title>
+        <style>
+            .demo_table,
+            .demo_table td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                /* xóa bỏ khoảng cách giữa các cell với nhau trong table */
+            }
+        </style>
+    </head>
+
+              <body>
+        <!-- list là gì -->
+        <!-- list có 3 dạng thẻ
+            
+                ol: ordered list: được đánh số, có stt, có thể chỉnh sửa kiểu đánh số
+                ul: unordered list: không có stt(thường dùng này nhất)
+                dl: definition list: dùng để định nghĩa
+
+            -->
+
+        <!-- trong các type của list không có tag khác như tag p chỉ được tag <li> -->
+
+        <!-- demo ol -->
+        <!-- nếu không muốn đánh theo số thì dùng attribute type để chỉnh sửa lại  -->
+        <!-- có thể chỉnh bắt đầu từ đâu dùng attribute start -->
+        <ol type="1" start="2">
+            <li>Ca phê sữa</li>
+            <li>Trà sữa</li>
+            <li>Trà đào</li>
+        </ol>
+
+        <!-- demo ul -->
+        <!-- nếu không muốn đánh theo số thì dùng attribute style="list-style-type:" để chỉnh sửa lại  -->
+        <hr>
+        <ul style="list-style-type: circle;">
+            <li>Ca phê sữa</li>
+            <li>Trà sữa</li>
+            <li>Trà đào</li>
+        </ul>
+        <hr>
+
+        <!-- lỗi sai hay gặp -->
+        <ul>
+            <p>Cà phê</p>
+            <li>Cà phê sữa</li>
+            <li>Cà phê sữa đá</li>
+            <li>Cà phê đen</li>
+            <p>Rượu</p>
+            <li>Rượu vang</li>
+            <li>Rượu mạnh</li>
+        </ul>
+        <!-- đây là code sai -->
+        <!-- vì trong list chỉ được chứa các thẻ li -->
+        <!-- cách fixx -->
+
+        <ul>
+            <li>
+                Cà phê
+                <ul>
+                    <li>Cà phê sữa</li>
+                    <li>Cà phê sữa đá</li>
+                    <li>Cà phê đen</li>
+                </ul>
+            </li>
+
+            <li>
+                Rượu
+                <ul>
+                    <li>Rượu vang</li>
+                    <li>Rượu mạnh</li>
+                </ul>
+        </ul>
+
+        <hr>
+        <!-- table -->
+        <!-- table là bảng -->
+        <!-- table có 3 thẻ chính -->
+        <!-- table: bảng -->
+        <!-- tr: hàng (table row)-->
+        <!-- td: cột(table data) -->
+        <!-- th: cột đầu tiên của bảng (table header) -->
+        <!-- table có thể chứa nhiều thẻ khác như p, a, img, ... -->
+        <table class="demo_table">
+            <tr>
+                <td colspan="2">1</td>
+
+                <td rowspan="2">3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+
+            </tr>
+            <tr>
+                <td colspan="3">7</td>
+
+        </table>
+
+        <!-- cách tạo bảng nhanh -->
+        <!-- table>tr*11>td*4  -->
+        <!-- trong một table có 11 row và 4 column -->
+        table>tr*11>td*4
+    </body>
+
+</html>

@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #1e272e;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: aqua;
+}
+
+.countdown-item{
+    font-size: 8rem;
+}
+
+.button{
+    padding: 1rem;
+    font-size: 2rem;
+}

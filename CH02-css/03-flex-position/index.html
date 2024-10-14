@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bài 3: flex và position</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link 
+            href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" 
+            rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+        <!-- nên để này cuối cùng để code mình có sức ảnh hưởng nhiều nhất -->
+    </head>
+    <body>
+        <!-- font -->
+         <hr>
+         <p>
+            Quang Trung Nguyễn Huệ là 2 anh em, đó là người nào nói vậy <br />
+            còn tôi, thị họ là một người duy nhất.
+         </p>
+         <hr>
+         <div class="demo-Sticky">Tôi là Sticky</div>
+         <hr>
+        <!-- flex -->
+            <!-- trc 2005 2006 là wed tỉnh (html/css)  -->
+            <!-- chia layout  -->
+            <!-- cách 1: inline-block + font-size  -->
+            <!-- cách 2: (2010) float + clearfix -->
+            <!-- bất lợi: không thể chỉnh chiều cao mà phải fix cứng chiều cao   -->
+            <!-- 2015: flex | Grid -->
+            <!-- Grid có 12col  -->
+            <!-- Nhược điểm của Grid  
+            1. không chia được tỉ lệ 7: 3
+            2. không chia được khi số muốn chia lại không chia hết cho col vì chỉ có 12col cố định -->
+                <!-- VD muốn chia làm 5 phần thì sẽ không được -->
+
+         <!-- flex: thay thế cho cách chia layout cũ -->
+            <!-- trên trục chính thì chỉ có content -->
+            <!-- demo dùng flex cơ bản -->
+            <!-- flex có hai trục quy tắc bàn tay trái hướng xuống(mặc định) -->
+            <!-- ------.> -->
+            <!--|  -->
+            <!--|  -->
+            <!-- ngón cái luôn là trục chính(justify) -->
+            <!-- chiều kia là trục phụ(align) -->
+            <!-- không có left và right chỉ có start and end -->
+
+        <!-- content và items -->
+            <!--content là điều khiển khoảng hở giữa các khối  -->
+            <!-- đi từng khối không phải đi một cục -->
+            <!-- items là điều khiển cả khối các items cùng dịch chuyển-->
+
+        <!-- flex-direction -->
+            <!-- mặt định là row -->
+            <!-- row-rev lật trục chính và cả phần tử và start và end -->
+            <!-- column lật trục chính xuống vị trí trục phụ và trục phụ lên trên -->
+            <!-- column-rev đảo trục lại của column -->
+
+
+        <!-- trong order mọi  thức đều được coi là 0 muốn lên -->
+            <!-- đầu thì -1 muốn xuống cuối thì 1 -->
+
+        <!-- flex-wrap -->
+            <!-- mặc định là nonwrap -->
+            <!-- swap trục phụ -->
+
+        <!-- demo flexbox -->
+         <div class="cha">
+            <div class="con1"></div>
+            <div class="con2"></div>
+         </div>
+
+         <!-- demo flex lần 2 -->
+            <!-- tăng giảm kích thước được -->
+            <!-- height của block sẽ luôn bằng height của cha khi mặc định kể cả khi co lại vẫn bằng nhau -->
+          <div class="chu">
+            <div class="chau">
+                <h1>Anh cháu rất quý cô Chắc</h1>
+                <p>Nhà anh cháu bên trái nhà của cô Chắc</p>
+                <p>mà chắc có vẽ như cô chắc không mấy thiện cảm với anh Cháu</p>
+            </div>
+            <div class="chac">
+                <h1>Nhà cô Chắc bên phải nhà anh Cháu</h1>
+                <p>cô Chắc biết anh Cháu rất quý mình</p>
+                <p>Nhưng chắc là Chắc chắc chắc khoogn thích anh Cháu</p>
+                <p>vì anh Cháu dùng dép đôn chề</p>
+                <p>anh Cháu còn chơi với johny đen và anh Cáo <br />
+                    họ cùng nhau dùng đồng brr <br />
+                    anh Cháu dù mặc envisu nhưng hàng kim biên
+                </p>
+
+            </div>
+          </div>
+
+
+          <!-- demo position -->
+           <div class="big-div">
+                <div class="small-div">Tôi là div nhỏ</div>
+                <p>Ahihi xin chào cuộc đời <br />
+                    dù nhiều lần làm ta chơi vơi <br />
+                    tuy học ít nhưng chơi cũng nhiều <br />
+                    chiều ăn bánh tối lại vào hàng <br />
+                    Ahihi xin chào cuộc đời <br />
+                    dù nhiều lần làm ta chơi vơi <br />
+                </p>
+           </div>
+
+
+           <!-- btn-fb -->
+           <!-- Form chuẩn làm một cái icon -->
+            <div class="btn-fb">
+                <div class="icon">F</div>
+            </div>
+            
+            <!-- pseudo element -->
+             <div class="ahihi">
+                <!-- ::before -->
+                xin chào
+                <!-- ::after -->
+            </div>
+
+            <!-- visual dom -->
+
+
+            <!-- siêu button -->
+                <button class="demo-btn">BUTTON</button>
+
+
+
+
+
+
+
+        <!--  -->
+        <div style="height: 100vh;"></div>
+    </body>
+</html>

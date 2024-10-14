@@ -1,0 +1,176 @@
+/* reser CSS */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: "Roboto Condensed", sans-serif;
+    /* font-weight: 100; */
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+/* demo flex */
+.cha{
+    border: 3px solid black;
+    display: flex;
+}
+
+.con1{
+    border: 3px solid red;
+    width: 10rem;
+    height: 10rem
+}
+
+.con2{
+    border: 3px solid blue;
+    width: 10rem;
+    height: 10rem
+}
+
+.chu{
+    border: 3px solid black;
+    display: flex;
+}
+
+.chau{
+    border: 3px solid red;
+}
+
+.chac{
+    border: 3px solid blue;
+}
+
+/* demo position */
+.big-div{
+    border: 3px solid green;
+    width: 25rem;
+    position: relative;
+}
+
+.small-div{
+    border: 3px solid blue;
+    background-color: aqua;
+    position: absolute;
+    /* cách top và left đều 50% */
+    top: 50%;
+    left: 50%;
+    /* dịch chuyển chính bản thân no thục lại 50% kích thước của nó */
+    transform: translate(-50%, -50%);
+    /*  transform trong CSS được sử dụng để áp dụng các phép biến đổi 2D hoặc 3D lên một phần tử. */
+    /* Công dụng của transform
+        Di chuyển (translate): Di chuyển phần tử từ vị trí hiện tại của nó.
+        Xoay (rotate): Xoay phần tử quanh một điểm cố định.
+        Kéo dài/Thu nhỏ (scale): Kéo dài hoặc thu nhỏ phần tử theo các trục X và Y.
+        Nghiêng (skew): Nghiêng phần tử theo các trục X và Y. 
+    */
+    z-index: -1;
+    /* z-index chỉ dùng cho position */
+    /* để nó nằm phía sau block cha */
+    /* mọi đối tượng đều được xem là 0 */
+}
+
+/* position để tạo ra để đưa đến những vị trí đặt biệt */
+
+/* không lạm dụng vì khi thu phóng sẽ làm vỡ  */
+/* 
+static: bất động, tĩnh, mặc định của các tag.
+relative: xuất hồn, thoát xác, bỏ lại xác, còn hồn thì đi 
+căn chỉnh vị trí so với trạng thái static
+position: relative;
+top: 5rem;
+left: 3rem;
+absolute: thoát toàn bộ khỏi cha và nằm đè lên cha nó
+và nó không nhận static làm cha và lướt lên trên tìm cha khác và nó
+sẽ cane chỉnh vị trí theo cha
+
+*/
+
+
+
+/* demo Sticky */
+
+.demo-Sticky{
+    position: sticky;
+    /* công dụng cuốn theo trang khi trượt */
+    top: 0;
+    /* xác định biên khi nào bắt đầu cuốn theo trang */
+    /* cách top 0 thì sẽ bắt đầu cuốn */
+}
+
+
+.btn-fb{
+    border: 3px solid black;
+    /* làm hình tròn */
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    /* cách 1 dùng flex */
+    /* cách 2 dùng position */
+    /* để nó nằm cổ định */
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+.icon{
+    position: absolute;
+    /* căn icon vào chính giữa của vật thể */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* sticky và fixed căn theo màn hình mà không theo vật thể chứa nó */
+
+
+/*  pseudo tag: div va span
+    pseudo class: unvisited :visited : active: hover: focus 
+    pseudo element:  ::after ::before*/
+
+
+.ahihi::before{
+    content: "hihi";
+}
+
+.ahihi::after{
+    content: "huhu";
+}
+
+
+
+/* demo button */
+.demo-btn{
+    margin: 3rem;
+    padding: 1rem;
+    background-color: transparent;
+    color: hotpink;
+    position: relative;
+    border: 2px solid hotpink;
+}
+
+.demo-btn::before{
+    content: "";
+    top: 0;
+    right: 0;
+    position: absolute;
+    background-color: hotpink;
+    z-index: -1;
+    height: 100%;
+    width: 0%;
+    transition: 0.3s;
+}
+.demo-btn:hover::before{
+    width: 100%;
+    left: 0;
+}
+
+.demo-btn:hover{
+    color: white;
+}

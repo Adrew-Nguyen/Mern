@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+/* card */
+
+.container{
+    /* border: 1px solid red; */
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+
+.car-carousel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* border: 1px solid green; */
+}
+
+.card__block{
+    width: 25.6rem;
+    border: 1px solid #eeeeee;
+    margin: 0.3rem;
+    background-color: #fafafa;
+    padding: 0.3rem;
+    transition: 0.3s;
+}
+
+.card__block:hover{
+    box-shadow: 1.5px 1.5px 8px 6px #695e5e;
+}
+.card-img{
+    width: 24.8rem;
+    overflow: hidden;
+}
+
+.card-img img{
+    display: block;
+    width: 100%;
+    /* căn theo 1 chiều */
+}
+
+.card-infor{
+    margin: 0.3rem 0 ;
+}
+
+.card_controller{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card_controller__block{
+    width: calc(50% - 1px);
+}
+
+.btn-card__controller{
+    display: block;
+    color: white;
+    background-color: lightseagreen;    
+    text-decoration: none;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-card__controller:hover{
+    background-color: rgb(24, 197, 188);
+}
+
+.splide__slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

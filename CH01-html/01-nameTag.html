@@ -1,0 +1,225 @@
+<!--comment--> 
+
+<!-- 
+    HTML: Hyper Text Markup Language
+    ngôn ngữ đánh dấu siêu văn bản
+    đây không phải là ngôn ngữ lập trình
+-->
+
+<!-- 
+    document: tất cả những gì viết text này được gọi là document
+    Muốn hiện thị document như trang wed thì nó cần phải chạy trên nền tảng wed
+    -- người làm được điều này là wed browser
+    -- wed browser: là phần mềm giúp hiển thị trang wed
+    -- các trình duyệt phổ biến: Chrome, Firefox, Safari, Opera, IE, Edge
+
+    vậy trước khi chạy mình cần khai báo cho trình duyệt wed biết rằng
+    document của mình được viết bằng ngôn ngữ gì?
+-->
+
+<!-- trong html các phần tự là các tag || thẻ -->
+
+<!-- cấu trúc của một tag:
+    <tên tag thuộc tính="giá trị thuộc tính"> nội dung </tên tag>
+    <tagName attribute> content </tagName>
+    - tag mở: <tagName>
+    - tag đóng: </tagName> 
+    - tag tự mở: <tagName/>
+
+    - tên tag: tên của thẻ
+    - thuộc tính: là các thông số của thẻ
+    - giá trị thuộc tính: giá trị của thuộc tính
+    - nội dung: là nội dung của thẻ 
+-->
+    
+
+<!DOCTYPE html>
+<html lang="vi" style="scroll-behavior: smooth;">   <!--tag mở  -->
+<!-- "html" là toàn bộ wed  -->
+ <!-- một wed gồm 2 phần : đầu và body (chúng ta thường xem là phần body) -->
+  <!-- header chứa toàn bô tài nguyên mà wed cần sử dụng -->
+   <!-- còn body thì chỉ dùng để hiện thị thôi -->
+    <head>
+        <!-- meta được dùng để bộ nghĩa -->
+         <!-- thẻ meta là thẻ tự mở và tự đóng và không hiện thi cho người khác thấy -->
+        <meta name="xe moi">
+        <!-- cách để hiện lên đầu trong search gg -->
+        <meta charset="UTF-8">
+        <!-- charset: bộ mã ký tự -->
+        <!-- UTF-8: bộ mã ký tự phổ biến nhất -->
+        <!-- meta tag: là các thẻ không có nội dung -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- width=device-width: chiều rộng của wed bằng chiều rộng của thiết bị -->
+        <title>Bài số 1: name tag</title> <!-- title của trang nằm ở head-->
+    </head>
+    <body>
+        <!-- thẻ body: chứa nội dung của trang wed -->
+        <h1>Anh Điệp đẹp trai quá</h1>
+        <h2>1. Phân tích vẻ đẹp của anh Điệp</h2> 
+        <h3>1.1 Đôi mắt của người đàn ông nhiều tiền</h3> 
+        <h3>1.2 Nụ cười tỏa sáng trong bóng tối tri thức</h3>
+        <!-- như vậy thì nó sẽ hiện lên rất xấu không căn lề chỉnh hàng các kiểu -->
+        <!-- bởi vì tất những gì đang viết trên không được bao bọc trong một tag  -->
+        <!-- trong html quy ước mọi thứ đều nằm trong một tag rõ ràng -->
+        <!-- giải pháp: bộ heading 
+            trong html người ta thường đặt tên các tag theo chức năng riêng của nó
+            - h1: heading 1 
+            - .............
+            - h6: heading 6
+        - có tất cả 6 tag h
+        - số càng lớn thì chữ càng nhỏ
+        - thẻ h thường dùng để làm 'đầu mục', 'tiêu đề' (title)
+        - các thẻ heading đều có display là block
+        - block là thẻ mà chiếm trọn 1 hàng và không có tag nào có cùng hàng với nó được
+        -->
+        <!-- demo display: block -->
+        <h5 style="display: inline-block">Người đẹp trai nhất</h5>
+        <h6 style="display: inline-block">Là anh Điệp</h6>
+        <!-- inline-block là tag mà có khối chỉ bao gọn content -->
+
+        <p>
+            tôi tên là Điệp &#8194;&#8194;&#8194; đẹp trai, nhà tôi ở quận 9 <br/>
+            3 đời nhà tôi làm gỗ, đến đến đời tôi làm yangho
+        </p>
+
+        <!-- demo tag pre 
+        <pre>
+            tôi tên là Điệp    đẹp trai, nhà tôi ở quận 9
+            3 đời nhà tôi làm gỗ, đến đến đời tôi làm yangho
+        </pre>
+        -->
+        
+        <!-- mutiple page -->
+        <!-- trong html không có space được
+            vì vậy 
+            c1: dùng &#8197; để thay thế 
+            c2: dùng tap pre: preformatted
+            -không nên dùng tag này vì có cơ hội gây ra bug hỡ xường
+            -tag pre: giữ nguyên định dạng của text
+            -display là block
+        -->
+
+        <!-- br: breakline: xuống dòng
+            có 3 form viết
+            <br></br> 
+            <br> 
+            <br />
+        -->
+
+        <!-- p: paragraphs: đoạn văn
+            display: block
+            không tự xuống dòng 
+        -->
+        <!-- hầu hết các tag đều có thuộc tính là style
+        - text-align: căn lề cho text của tap(theo cái block)
+
+        -->
+        <p style = "text-align: center;">demo text-align với block</p>
+        <p style = "text-align: center; display: inline-block">demo text-align với inline-block</p>
+        <!-- không thể căn lề được vì cái block nó vừa khích với text nên không thể -->
+
+
+        <!-- tag formating: bộ tượng hình 
+            đọc lên thì sẽ biết trạng thái của text
+            display: inline
+            inline-block: là thẻ mà có khối chỉ bao gọn content 
+            inline: là thẻ mà không có khối chỉ bao gọn content
+        -->
+        <p>
+            <em>xin chào</em> các <small>bạn</small>, <del>tao</del> <strong>tôi</strong> là <mark>Điệp đẹp trai </mark>
+        </p>
+
+        <p>H<sub>2</sub>O: nước</p>
+        <p>ax<sup>2</sup> + bx + c = 0</p>
+        <!-- 
+        i: italic: nghiêng   | em: emphasize: nhấn mạnh
+        b: bold: in đậm      | strong: mạnh mẽ
+        del: delete: xóa     | ins: insert: chèn
+        small: nhỏ           | big: lớn
+        mark: đánh dấu       
+        sub: subscript: dưới | sup: superscript: trên
+        -->
+
+        <!-- pseudo tag: tag giả: thẻ mà không có chức năng
+            Nó tồn tại ở hai dạng
+            + span: display là inline
+            + div: display là block 
+        -->
+        <!-- demo span -->
+        <p><span style= "color: red; font-size: 30px; text-decoration: line-through;">X</span>in chào bạn</p>
+        <!-- demo div -->
+         <div style="color: red">
+            <p>Người giàu thường sống tình cảm</p>
+            <p>Ai cũng có thể trở nên giàu có</p>
+            <p>Nếu họ chơi với người giàu</p>
+        </div>
+
+
+        <!-- làm bài tập -->
+         <div style ="color : red;">
+            <p>Lòng ta trống lắm, lòng ta sụp</p>
+            <p>Như túp nhà không bốn vách xiêu;</p>
+            <p>Em chẳng cứu giùm, em bỏ mặc</p>
+            <p>Mưa đưa ta đến bến Đìu hiu.</p>
+         </div>
+
+         <div style = "color : blue; text-align: right;">
+            <p>
+                Em ở bên mình; ta ngó say,<br/>
+                Song le bên ấy với bên này<br/>
+                Cũng xa như những bờ xa cách,<br/>
+                Không có thuyền qua, không cánh bay<br/>
+            </p>
+         </div>
+
+         <div style = "color : red;">
+            <p>
+                Ta thấy em xinh, khẽ lắc đầu.<br/>
+                Bởi vì ta có được em đâu!<br/>
+                Tay kia sẽ ấp nhiều tay khác,<br/>
+                Môi ấy vì ai sẽ đượm mầu.<br/>
+            </p>
+         </div>
+
+         <!-- link hyper links -->
+        <p><a 
+            style= "color: black; text-decoration: none; cursor: default;"
+            href="https://www.google.com.vn/?hl=vi" 
+            target="_blank">dẫn đến google</a>
+        </p>
+
+        <!-- tà đạo bên dưới -->
+        <div style="width: 100vw; height: 100vh; ">
+            <a href="https://www.facebook.com/"
+            style = "display: inline-block; width: 100%; height: 100%" ></a>
+        </div>
+
+
+        <!-- tag dùng trong bookmark -->
+        <p>
+            <a href="#khobau111">Kho bau Truong My Lan</a>
+        </p>
+
+        <p>
+            Khi HĐXX hỏi, “bị cáo có nhận khoản tiền nào 
+            của Công ty Faros chuyển đến không?” Bị cáo Nga khẳng định “không”.Về m
+            ục đích ký vào các hợp đồng ủy thác, bị cáo 
+            Nga cho hay, làm việc với cơ quan điều tra, bị cáo mới<span id="khobau111">kho bau truong my lan</span>b
+            iết các hợp đồng này để "góp vốn, nâng vốn cho công ty". 
+            Nga khẳng định, mọi đề xuất ký hợp đồng ủy thác đều 
+            do Trịnh Thị Minh Huế trực tiếp yêu cầu.
+            Tương tự như Huế, dù anh trai Trịnh Văn Quyết
+            bị Viện KSND Tối c
+            ao quy kết hưởng lợi tới 700 tỷ đồng từ vụ thao túng thị 
+            trường chứng khoán nhưng bị cáo Nga khẳng định không được bàn bạc,
+            hưởng lợi ích gì.
+        </p>
+
+        <!-- tag a: href hyper reference: đường dẫn siêu văn bản -->
+         <!-- tag a display is inline -- nên không nên nằm một mình -->
+        <!-- thuộc tính target mặc định là self (khi chuyển link thì wed nó tự hủy) -->
+         <!-- thuộc tính blank là nhảy tab -->
+
+        
+    </body>
+</html> <!-- tag đóng -->

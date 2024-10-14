@@ -1,0 +1,238 @@
+/* reser CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+}
+
+/* Code CSS */
+.container {
+  width: 68.7rem;
+  /* height: 77.9rem; */
+  height: 100%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f0ed;
+  display: flex;
+}
+
+@media (max-width: 690px) {
+  .container {
+    transform: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+
+/* stort detail */
+.store__detail {
+  border-right: 1px solid black;
+  width: 30%;
+  height: 100%;
+}
+
+/* store inner */
+.store__inner {
+  width: 70%;
+  margin: 0rem 0.5rem;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.detail {
+  background-color: #ffdbdb;
+  width: 18.7rem;
+  height: 76.3rem;
+  margin: 0.8rem 1.05rem 0.8rem 0.9rem;
+}
+
+.detail__title {
+  text-align: center;
+  padding: 0.95rem 0rem;
+}
+
+.detail__form {
+  font-size: 1.2rem;
+}
+
+.input-name {
+  margin: 0rem 1.15rem;
+  height: 5.5rem;
+  width: 16.4rem;
+}
+.input-name p {
+  padding: 0.65rem 0rem;
+}
+#name {
+  width: 16.4rem;
+  height: 2.8rem;
+}
+
+.input-price {
+  margin: 0rem 1.15rem;
+  height: 5.5rem;
+  width: 16.4rem;
+}
+.input-price p {
+  padding: 0.65rem 0rem;
+}
+#price {
+  width: 16.4rem;
+  height: 2.8rem;
+}
+
+.input-amount {
+  margin: 0rem 1.15rem;
+  height: 5.5rem;
+  width: 16.4rem;
+}
+.input-amount p {
+  padding: 0.65rem 0rem;
+}
+#amount {
+  width: 16.4rem;
+  height: 2.8rem;
+}
+
+.input-description {
+  margin: 0rem 1.15rem 1.5rem 1.15rem;
+  width: 16.4rem;
+}
+.input-description p {
+  padding: 0.65rem 0rem;
+}
+#description {
+  width: 16.4rem;
+  height: 8.9rem;
+}
+
+.detail__controller {
+  display: flex;
+  width: 16.4rem;
+  margin: 0 1.15rem;
+  justify-content: space-between;
+}
+
+.detail__controller button {
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fffdfd;
+}
+#add {
+  padding: 0.4rem 0.7em;
+  background-color: #72bbe4;
+}
+
+#delete {
+  padding: 0.3rem 0.4rem;
+  background-color: #d94d4d;
+}
+
+#clear {
+  padding: 0.4rem 0.6rem;
+  background-color: #8c8c8c;
+}
+
+/* store inner */
+
+.store__inner {
+  width: 70%;
+  margin: 0rem 0.5rem;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+#store__filter {
+  padding: 1rem 1rem 1rem 2rem;
+}
+
+#store__filter input {
+  height: 2.3rem;
+  width: 29.8rem;
+  margin-right: 1rem;
+}
+
+#store__filter button {
+  padding: 0.3rem 2.2rem;
+  color: white;
+  background-color: #fbbcbc;
+  border-radius: 0.5rem;
+}
+
+.store__product {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 3rem;
+}
+
+@media (max-width: 644px) {
+  .store__product {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+  }
+}
+@media (max-width: 582px) {
+  .store__product {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: space-between;
+  }
+}
+
+.card__product {
+  border: 1px solid black;
+  width: 12.1rem;
+  height: 13.8rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.25s;
+  position: relative;
+  z-index: 1;
+}
+
+.card__img {
+  width: 100%;
+  height: 65%;
+}
+
+.card__img img {
+  width: 100%;
+  height: 100%;
+}
+
+.card__content {
+  width: 100%;
+  height: 35%;
+  background-color: #fbbcbc;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.card__price {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.card__price p:nth-child(2) {
+  text-decoration: line-through;
+}
+
+.card__product:hover {
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
+}

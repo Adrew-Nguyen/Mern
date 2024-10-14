@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>03 - a tag hacking</title>
+        <!-- nên hạn chế code style trên head vì trong quá trình code mik sẽ code rất nhiều thứ vì thế nên code style
+            trong một file khác(file trên head là dùng CSS) -->
+        <!-- dùng tag link để liên kết file -->
+        <link rel="stylesheet" href="./style.css">
+        <!-- rel: relationship attribute -->
+        <!-- href: hyperlink reference -->
+        <!-- display: inline -->
+    </head>
+
+    <body>
+        <!-- 
+            "." là một class 
+            "#" là một id
+            -->
+        <!-- thẻ a là inline không có viền -->
+        <!-- 
+            - Click me gồm có 4 trạng thái "link status":
+                Trạng thái đầu tiên:  unvisited: có màu xanh biển (chưa bấm vào link lần nào)
+                Trạng thái thứ hai: active: có màu đỏ(đang dè chuột)
+                Trạng thái thứ ba: visited: có màu tím(đã bấm vào link)
+                Trạng thái thứ tư: hover: có màu xanh lá cây(đưa chuột vào)
+            - Có thể thay đổi màu sắc của các trạng thái này bằng cách sử dụng CSS
+            -->
+
+        <!-- demo các status của một thẻ a -->
+        <a class="demo-btn" href="#">Click Me</a>
+        <br />
+        <hr>
+        <!-- Tag a làm nút -->
+        <a class="demo-btn1" href="mailto:nhatruong5020@gmail.com">Send nude</a>
+        <!-- muốn người khác gữi mail cho mình -->
+
+        <!-- demo trap quảng cáo -->
+        <!-- tuyệt đối : là copy đường đẫn vào luôn 
+                                bất lợi đường dẫn dài -->
+        <!-- tương đối: 
+                "./" là từ chỗ đúng nhìn xung quanh
+                "../" là từ chỗ đúng nhìn ra ngoài (có ý nghĩa là nhìn thư mục cha của thư mục hiện tại đang đứng)
+                muốn ra thêm một lớp nữa thì "../" thêm   -->
+        <a href="https://www.google.com.vn/?hl=vi"><img src="./fptLogo.jpg" alt="fptLogo"></a>
+        <!-- alt hiển thị khi đường dẫn có vấn đề -->
+        <!-- alt: alternative text attribute  -->
+
+
+    </body>
+
+</html>
+
+
+<!-- Ứng dụng của thẻ a ngta sẽ có xu hương biến thẻ a thành nút -->

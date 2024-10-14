@@ -1,0 +1,70 @@
+/* tất cả trạng thái sẽ là màu teal */
+.demo-btn{
+    color: teal;
+}
+
+/* chỉnh màu từng trạng thái */
+
+.demo-btn:visited{
+    color: purple;
+}
+.demo-btn:active{
+    color: red !important;
+}
+.demo-btn:hover{
+    color: green;
+}
+
+
+
+/* thẻ a là inline nên không thẻ chỉnh width và height => thường sẽ chỉnh về inline-block khi dùng tag a */
+.demo-btn1{
+    display: inline-block;
+    border : 1px solid black;
+    /* border: viền */
+    /* solid là trạng thái đường viền liên tục */
+    text-decoration: none;
+    /* bỏ gạch chân */
+    /* một nút thường không có sự trộn lẫn giữa hoa và thường */
+    text-transform: uppercase;
+    /* chuyển tất cả chữ thành chữ hoa */
+    font-family: sans-serif;
+    /* chọn font chữ  không có chân*/
+    font-weight: 700;
+    /* mặc định độ dài của chữ là 400 (thin, regular)*/
+    /* bold là 700 */
+    /* bolder là 900 */
+    padding: 10px 20px;
+    /* trên dưới là 10 và trái phải là 20px */
+    /* padding: 10px 20px 30px */
+    /* trên 10px, phải 20px, dưới 30px, trái 20px */
+    /* theo chiều kim đồng hồ và bắt đầu từ bot */
+    margin: 10px;
+    /* cung cấp khoảng cách giữa các vật thể xung quanh và nút*/
+    /* khi hỏi về kích thước của một nút thì không tính phần margin */
+    /* khi thiết kế thì phải tính margin  */
+    transition: 0.3s;
+    /* thời gian chuyển đổi */
+    color: black;
+    box-shadow: 1px 1px 0px 0px;
+    
+}
+
+.demo-btn1:hover{
+    color: white;
+    background-color: black;
+    /* màu nền */
+    /* khi hover thì màu chữ sẽ chuyển thành màu trắng và màu nền sẽ chuyển thành màu BLACK*/
+}
+/* class ở dưới sẽ có hiệu lực mạnh hơn, tính ghi dòng, ghi đè */
+
+
+/* model box */
+/* 
+model box là những thành phần trong một block có gì 
+border: đường viền
+padding: khoảng cách từ đường viền đến context
+margin: khoảng cách từ đường viền đến block khác
+content: phần trong (chứa nội dung)
+outline: đường viền ngoài cùng(nằm gần bolder)
+*/

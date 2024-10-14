@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-Form</title>
+  </head>
+
+  <body>
+    <!-- Form: biểu mẫu: là cách thu nhập thông tin từ người dùng -->
+    <!-- cách dùng tag input không chuẩn -->
+    <!-- <input type="text"> -->
+    <!-- Chuẩn: nên bọc nó vào một div-->
+    <!-- Lưu ý: những cái gì cần bảo mật thì không nên dùng form để gữi  -->
+    <form>
+      <div>
+        <label for="username">username</label>
+        <input type="text" placeholder="Nhập username đi" id="username" name="username" />
+      </div>
+      <hr>
+      <!-- name ở đây là tên của biến để lưu trữ dữ liệu ở trên sever đã nhập vào -->
+      <!-- id là được dùng để kết nối label -->
+      <div>
+        <label for="pws">password</label>
+        <input type="password" placeholder="Nhập password đi" id="password" name="password" />
+        <!-- attribute readonly khiến không thể nhập được -->
+      </div>
+
+      <hr>
+      <!-- Một vài thẻ input thông thường -->
+      <input type="email" />
+      <!-- input yêu cầu phải có @-->
+      <hr>
+      <input type="number" />
+      <!-- nhập số nhưng có một ngoại lệ nhập được chữ e vì e biểu hiện cho 10^ -->
+      <hr>
+      <input type="range" min="0" max="10" step="2">
+      <hr>
+      <input type="date" />
+      <hr>
+      <input type="color" />
+      <hr>
+      <input type="file" />
+      <!-- không gửi đc muốn gữi phải mode lại vì sever của mình chống gữi file độc -->
+      <hr>
+      <!-- bảng chọn giới tính -->
+      <div>
+        <label for="male">Name</label>
+        <input type="radio" id="male" name="gender" />
+        <label for="female">Nữ</label>
+        <input type="radio" id="female" name="gender" />
+      </div>
+      <!-- cho name chung để máy cung cấp 1 ô nhớ thui tránh trường hợp đều chọn đc cả nam va nữ -->
+      <hr>
+
+      <!-- nút gửi -->
+      <select name="car" id="car">
+        <option value="1" selected>Audi</option>
+        <option value="2">BMW</option>
+        <option value="3">Mercedes</option>
+      </select>
+      <!-- keyword "selected" để giúp máy hiểu mặc định chọn là nó -->
+
+      <hr>
+
+      <textarea name="message" id="message" style="min-width: 100px; max-width: 100px;"></textarea>
+
+      <hr>
+      <fieldset>
+        <legend>Thông tin cá nhân</legend>
+        <p>Xin chào mọi người</p>
+      </fieldset>
+      <hr>
+      <div>
+        <label for="">Bạn có đồng ý không?</label>
+        <input type="checkbox" />
+      </div>
+
+      <hr>
+
+      <button type="submit">Send</button>
+
+    </form>
+
+  </body>
+
+</html>

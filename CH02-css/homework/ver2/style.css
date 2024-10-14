@@ -1,0 +1,108 @@
+/* reset CSS */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+.container{
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.clearfix::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+
+/* header */
+.header__title{
+    background-color: grey;
+    padding: 0rem 1rem 1.5rem 1rem;
+}
+
+/* nav */
+
+.nav{
+    background-color: blue;
+}
+ .nav__list{
+    list-style-type: none;
+    padding: 2rem 0rem 2rem 5rem;
+}
+
+.nav__item{
+    float: left;
+    padding-right: 2rem;
+} 
+
+.nav__link{
+    color: white;
+}
+
+/* body */
+.contetn__block{
+    height: 20rem;
+}
+.left-side__block{
+    width: 25%;
+    float: left;
+    height: 100%;
+}
+
+.right-side_block{
+    width: 75%;
+    float: left;
+    height: 100%;
+}
+
+.top-left-side-block{
+    background-color: yellow;
+}
+
+.botton-left-side__block{
+    background-color: grey;
+}
+
+.menu__list{
+    padding-left: 5rem;
+    padding-bottom: 5rem;
+}
+
+
+.text__block{
+    padding: 3rem 1rem 2rem 1rem;
+}
+
+.left-right-side__block{
+    float: left;
+    background-color: green;
+    width: 50%;
+}
+
+.right-right-side__block{
+    float: right;
+    background-color: red;
+    width: 50%;
+}
+
+.text-side__block{
+    padding: 2rem 1rem;
+}
+
+/* footer */
+.footer{
+    background-color: blue;
+    text-align: center;
+}

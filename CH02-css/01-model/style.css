@@ -1,0 +1,103 @@
+
+/* reset css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* tính tất cả mọi thứ bằng widtd */
+}
+
+html{
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+body{
+    font-size: 1.6rem;
+    /* 1rem = 16px */
+}
+
+/* unit size: đơn vị đo
+    Không nên lạm dụng những đơn vị này:  px | mm |cm
+    Nên sử dụng đơn vị: 
+    %(ăn theo phần trăm); 
+    em(coi font-size của thẻ cha là 1 dv); 
+    rem (coi font-size của thẻ root(html) là 1 đơn vị)
+    mặc định font-size: 16px (do browser cung cấp)
+*/
+
+
+/* outline */
+.demo-ipt{
+    outline: none;
+    margin: 2rem;
+    padding: 1rem;
+    border: 2px solid red;
+    outline: 2px solid blue;
+    /* border thay đổi thì ảnh hưởng tới box
+        còn outline thì không ảnh hưởng */
+    outline-offset: 1rem;
+    /* outline-offset là khoảng cách giữa border và outline */
+}
+
+.demo-border{
+    border: 3px solid teal;
+    /* shorthand */
+    border-style: solid;
+    border-top: 3px solid red;
+    border-left: 3px solid yellow;
+    border-right: 3px solid blue;
+    border-bottom: 3px solid rebeccapurple;
+    border-radius: 0.3rem;
+    /*  tạo góc tròn cho các phần tử */
+
+}
+
+.demo-circle{
+    border: 2px solid red;
+    border-radius: 50%;
+    height: 30rem;
+    width: 30rem;
+    background-color: blueviolet;
+}
+
+/* màu trong suốt là transparent */
+.demo-triangle{
+    border: 3px solid red;
+    border-top: 121px solid transparent;
+    border-left: 121px solid transparent;
+    border-right: 121px solid transparent;
+    border-bottom: 121px solid red;
+    height: 15rem;
+    width: 15rem;
+}
+
+.demo-text{
+    color: steelblue;
+    background-color: bisque;
+    font-size: 3rem;
+    direction: ltr;
+    text-decoration: underline solid chartreuse;
+    text-indent: 3rem;
+    /* thụt đầu dòng */
+    letter-spacing: 0rem;
+    /* khoảng cách giữa các ký tự */
+    word-spacing: 0rem;
+    /* khoảng cách giữa cá từ */
+    line-height: 30rem; 
+    /* khoảng cách giữa các dòng */
+    /* mặt định của line-height là 18px */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    /* độ dày của chữ */
+    font-style: italic;
+    text-shadow: 6px -1px 1px gray;
+    /* bóng */
+}
+
+.demo-text span{
+    vertical-align: baseline;
+    /* căn chỉnh dọc của một phần tử theo baseline */
+    /* baseline ỏ đây có thể hiểu đường dưới chân của chữ
+    có thể thấy nó khi dùng underline nó */
+}

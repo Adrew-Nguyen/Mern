@@ -1,0 +1,151 @@
+/* reset css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+}
+/* demo background 
+vh: view height: độ cao của trình duyệt
+độ cao của một khung màn hình
+*/
+
+.demo1-bg{
+    height: 100vh;
+    background-color: red;
+}
+
+.demo2-bg{
+    height: 100vh;
+    background-color: aquamarine;
+    background-image: url("./conmeo.jpg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.parent{
+    border: 3px solid black;
+
+}
+
+.left-side{
+    border: 3px solid red;
+    width: 30%;
+    float: left;
+}
+
+.right-side{
+    border: 3px solid blue;
+    width: 30%;
+    float: right;
+}
+
+.clearfix::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+
+/* cách chia layout 
+cách 1:
+    - set display inline-block cho 2 đứa con chỉ vừa đủ content
+    - hành động này giúp chúng nó lên cùng 1 hàng nhưng vì là 
+    inline-block nên div cha sẽ xem chúng là từ nên sẽ tạo ra khoảng 
+    trống nhỏ giữa chúng
+
+    -cách fix:
+    + set font-size của div cha về 0 để nó tin rằng nó không chứa gì cả,
+    sau đó set lại font-size cho 2 div con để hiện thị content
+    - nhược điểm: không thể chia giao diện space between
+    - không có ưu điểm
+
+
+.parent{
+    border: 3px solid black;
+    font-size: 0;
+}
+.left-side{
+    display: inline-block;
+    font-size: 1.6rem;
+}
+.right-side{
+    display: inline-block;
+    font-size: 1.6rem;
+}
+
+cách 2:
+    - set width theo nhu cầu của mình cho các div con
+    - set float: left- right tùy vào layout mình thích cho div con
+    - lúc này vì các div con đang float nên div cha sẽ không coi chúng là từ
+    - nên mình phải thêm clearfix vào div cha để nó ôm một khối giống thằng con
+*/
+
+/* demo layout shoppee */
+
+.container{
+    /* border: 3px solid red; */
+    height: 27rem;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+.clearfix::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.left-side-banner{
+    /* border: 3px solid blue; */
+    width: calc(70% - 5px);
+    margin-right: 5px;
+    /* muốn tạo khoảng cách giữa hai side nên 1 bên phải chấp nhận bỏ ra */
+    float: left;
+    height: 100%;
+    /* vì đã fix cứng đi height của div cha nên height ở đây mới có tác dụng  */
+}
+.right-side-banner{
+    /* border: 3px solid blue; */
+    width: 30%;
+    height: 100%;
+    /* vì đã fix cứng đi height của div cha nên height ở đây mới có tác dụng  */
+    float: left;
+}
+
+.right-side-img{
+    /* border: 3px solid green; */
+    height: calc(50% - 2.5px);
+    /* muốn tạo khoảng cách giữa hai side nên 1 bên phải chấp nhận bỏ ra */
+    /* class này tác động vào 2 hình nên sẽ tạo ra khoảng cách giữa chúng là 5px */
+}
+.right-side-img:nth-child(1){
+    margin-bottom: 5px;
+    /* đẩy đi tạo khoảng cách */
+}
+.img-block{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* nào vượt qua kích thước đã cài đặt thì ẩn phần đó đi  */
+}
+/* tác động vào class img block */
+
+.img-block img{
+    display: block;
+    /* vì img có display là inline nên nếu muốn chỉnh tỉ lệ thì phải chuyển thành display block thì mới
+    chỉnh được */
+    height: 100%;
+    width: 100%;
+    /* này thu phóng chiều dài và chiều rộng của tấm hình bằng 100% kích thước của khối */
+    /* nếu có tấm hình đẹp thì nên thu phóng theo một chiều để hông bị vỡ ảnh */
+    /* keyword "auto"  khi đặt vào height hay width thì trình duyệt sẽ tự động tính toán kích thước 
+    của chiều còn lại để duy trì tỷ lệ khung hình gốc của ảnh. */
+}
+/* tác động vào tag img trong class img-block */

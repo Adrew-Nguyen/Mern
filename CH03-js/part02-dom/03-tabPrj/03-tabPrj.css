@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.tab-content-item {
+  width: 300px;
+  display: none;
+}
+
+.tab-content-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.navtab-btn.actived {
+  background-color: aqua;
+}
+
+.tab-content-item.actived {
+  display: block;
+}

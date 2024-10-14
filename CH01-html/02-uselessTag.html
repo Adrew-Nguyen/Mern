@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>03- các Tag vô dụng</title>
+        <style>
+            /* 3 cách selector
+            1. chọn theo tag name
+            */
+            p{
+                color: red;
+            }
+
+            p:nth-child(2){
+                color: blue;
+            }
+            /* cách 2 dùng class */
+            .special{
+                font-style: italic;
+            }
+            .special2{
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Quotations: câu trích dẫn -->
+         <p class="special">
+            Có một người từng nói rằng: "Một cây làm chẳng nên non, 
+            ba cây chụm lại vẫn là 3 cây."
+         </p>
+
+         <p class="special">
+            <p class="special2">
+                Có một người từng nói rằng: <q>Một cây làm chẳng nên non, 
+                    ba cây chụm lại vẫn là 3 cây.</q>
+            </p>
+         </p>
+
+        <!-- blockquote -->
+        <!-- abbr: inline -->
+          <p>Công chúa thuộc về <abbr title="Lê Điệp">người đẹp trai nhất</abbr></p>
+        <!-- address: p + em + block bỏ modelbox(bỏ hết viền) -->
+         <address>115/13 đường Đình Phong Phú</address>
+        <!-- cite: nghiêng -->
+         <p><cite>Tác Phẩm này của </cite>Vì em VanGood</p>
+        <!-- bdo -->
+         <bdo dir="rtl">xin chào bạn</bdo>
+        <p style="background-color: brown;">demo đổi màu nền</p>
+
+    </body>
+</html>
