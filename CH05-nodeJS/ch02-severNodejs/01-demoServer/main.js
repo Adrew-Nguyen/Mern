@@ -1,5 +1,6 @@
 // Trong nodejs có http là 1 module(object) chứa các method giúp mình tạo và thao tác với server
-// http là một hằng giúp mình liên kết với server
+// http là 1 module có sẵn dùng để tạo server bằng nodejs
+// http là module core của expressjs sau này(cũng dùng để tạo server)
 // module hiện tại: CommonJs
 
 const http = require("http");

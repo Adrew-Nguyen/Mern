@@ -4,10 +4,12 @@
 
 //tạo sever với express.
 const express = require("express");
+//tạo server ở bước này nè
+//khác với http là http phải dùng creatServer rồi chuyền vao 1 callback
 const app = express();
 const PORT = 4000;
 
-app.listen(PORT, (rep, res) => {
+app.listen(PORT, () => {
     console.log("App express đang chạy trên port: " + PORT);
 });
 
