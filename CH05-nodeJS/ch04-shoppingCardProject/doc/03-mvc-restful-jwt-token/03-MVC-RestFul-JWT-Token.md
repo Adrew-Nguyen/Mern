@@ -91,8 +91,6 @@ Có thể xử dụng **XML** nhưng phổ biến hơn cả vẫn là **JSON**
 
 - Token thường được sử dụng trong các hệ thống xác thực và ủy quyền để kiểm soát quyền truy cập của người dùng đối với tài nguyên hoặc dịch vụ.
 
-- Token thường được sử dụng trong các hệ thống xác thực và ủy quyền để kiểm soát quyền truy cập của người dùng đối với tài nguyên hoặc dịch vụ.
-
 -1 chuỗi jwt gồm 3 phần header.payload.signature
 
 ```json
@@ -109,7 +107,10 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ0MTE4NDdhZmJkYjUxMmE1MmM
 - Signature: Phần này được tạo bằng cách dùng thuật toán HMACSHA256 (cái này có thể thay đổi) với nội dung là Base64 encoded Header + Base64 encoded Payload kết hợp một "secret key" (khóa bí mật - do server giữ). Signature (Chữ ký) giúp đảm bảo tính toàn vẹn và bảo mật của thông tin trong JWT, dưới đây là công thức của signature
 
   ```js
-  HMACSHA256(base64UrlEncode(header) + '.' + base64UrlEncode(payload), secret_key)
+  HMACSHA256(
+    base64UrlEncode(header) + "." + base64UrlEncode(payload),
+    secret_key
+  );
   ```
 
 - tất cả mọi người đều biết được thông tin Header và Payload của cái JWT

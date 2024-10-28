@@ -2,6 +2,7 @@ import express from 'express'
 import userRouter from './routes/users.routers'
 import databaseService from './services/database.services'
 
+// console.log(new Date(2005, 12, 5).toISOString())
 //dùng express tạo server(app)
 const app = express()
 const PORT = 3000

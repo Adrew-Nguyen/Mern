@@ -1,6 +1,9 @@
 // controller là tầng xử lý logic và call database
 import { Request, Response } from 'express'
+import { RegisterReqBody } from '~/models/requests/users.requests'
 import userService from '~/services/users.services'
+import { ParamsDictionary } from 'express-serve-static-core'
+
 export const loginController = (req: Request, res: Response) => {
   //thêm tý logic trước khi trả kết quả cho người dùng
   const { email, password } = req.body
@@ -22,17 +25,28 @@ export const loginController = (req: Request, res: Response) => {
 }
 
 //route này nhận email và password để tạo tk cho mình
-export const registerController = async (req: Request, res: Response) => {
+export const registerController = async (req: Request<ParamsDictionary, any, RegisterReqBody>, res: Response) => {
   //lấy email và password từ người dùng muốn đăng kí tài khoản
-  const { email, password } = req.body
+  const { email } = req.body
   //tạo user và lưu vào database
   try {
-    const result = await userService.register({
-      email,
-      password
-    })
+    //Kiểm tra email đã tồn tại chưa
+    const isDup = await userService.checkEmailExist(email)
+    if (isDup) {
+      //flow 1:  res.status(400) => không nên
+      //flow 2:
+      // throw new Error('Email has been used')
+      // nhưng cũng không nên vì trong error có thuộc tính tên là `message` và bộ cờ của nó enumrable: false thì khi thông báo lỗi sẽ hông hiện lỗi ra
+      // Cách fix:
+      const customError = new Error('Email has been used')
+      Object.defineProperty(customError, 'message', {
+        enumerable: true
+      })
+      throw customError
+    }
+    const result = await userService.register(req.body)
     // nếu thành công thì
-    res.status(200).json({
+    res.status(201).json({
       msg: 'Register success!',
       data: result
     })

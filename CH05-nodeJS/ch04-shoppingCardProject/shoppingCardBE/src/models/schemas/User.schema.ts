@@ -1,21 +1,11 @@
 import { ObjectId } from 'mongodb'
-
-enum UserVerifyStatus {
-  Unverified, // chưa xác thực email, mặc định = 0
-  Verified, // đã xác thực email
-  Banned // bị khóa
-}
-enum USER_ROLE {
-  Admin, //0
-  Staff, //1
-  User //2
-}
+import { USER_ROLE, UserVerifyStatus } from '~/constants/enums'
 
 interface UserType {
   _id?: ObjectId //optional
-  name?: string
+  name: string
   email: string
-  date_of_birth?: Date
+  date_of_birth: Date
   password: string
   created_at?: Date
   updated_at?: Date //lúc mới tạo chưa có gì thì nên cho bằng create_at
