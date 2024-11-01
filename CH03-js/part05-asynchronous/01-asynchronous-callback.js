@@ -44,7 +44,7 @@ function a(x) {
 function b(y) {
     a(y + 2);
 }
-b(5);//7
+// b(5);//7
 function c(z) {
     b(z + 1);
 }
@@ -77,6 +77,7 @@ main();
 
 /*
 //JS là ngôn ngữ không đồng bộ. Vì vậy có vài cách để fix bất đồng bộ
+
 //1. asynchronous callback: xử lý bất đồng bộ bằng callback.
 docfile("ProductData.txt", (data) => {
     console.log(data);
@@ -91,8 +92,6 @@ dofile = function(urlFile, func){
 */
 
 //2. promise: lời hứa
-
-
 // DEMO 3(hay)
 //thay let thử
 for (var i = 0; i <= 3; i++) {
@@ -115,7 +114,7 @@ for (var i = 0; i <= 3; i++) {
 //     console.log(error);
 // }
 
-//Lưu ý: khi chơi với try catch là không chơi với bất đồng book.
+//Lưu ý: khi chơi với try catch là không chơi với bất đồng bộ.
 //Không nên xử lý như này.
 //vì khi chạy tới setTimeOut thì callbackFC đã đc chuyển qua callBack Queue rồi
 //khi hết timeOut thì nó mới chạy. Nhưng JS bẩn chất là bất đồng bộ nó sẽ không đợi
@@ -128,9 +127,12 @@ try {
 } catch (error) {
     console.log(error);
 }
+//=> Không bắt được lỗi ở đây và làm crash wed luôn
 
 //Nên bọc settimeOut ngoài truCatch khi muốn chơi trong môi trường bất
 //đồng bộ
+//đợi 9s sau thì mới chạy callbackFc bên trong mà thì lúc này mới chạy hàm nên vẫn try catch vẫn bắt đc
+// bth
 setTimeout(() => {
     try {
         throw new ("SettimeOut bọc tryCatch nè!");
