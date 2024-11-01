@@ -92,7 +92,7 @@
 // //                  + mất mạng giữa chừng.
 
 // // thành công và và thất bại của sever là 'có kết nối được sever không'.
-// // =>     sever không bao giờ reject
+// // => sever không bao giờ reject
 // let p2 = new Promise((resolve, reject) => {
 //     setTimeout(() => {
 //         resolve({ name: "Điệp", age: 24 });
@@ -147,7 +147,7 @@
 // console.log(a);
 
 //------------------------------------------------------------------
-//1 promist chỉ có thể rơi vào 1 trong 3 trạng thái sau:
+//1 promise chỉ có thể rơi vào 1 trong 3 trạng thái sau:
 //  pending           onFulFilled           onRejected
 //                      resolve                 reject
 
