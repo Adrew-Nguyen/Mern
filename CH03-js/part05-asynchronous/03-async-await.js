@@ -9,15 +9,22 @@ new Promise((resolve, reject) => {
     resolve("ahihi");
 })
 
+// Viết tắt của trên nhưng lại bọc them vào 1 lớp function để tránh trường hợp từ động chạy
 function handle() {
     return Promise.resolve("ahihi");
 }
 
+//hàm này cũng y chang hàm trên nhưng dùng async function thui cả hai đều trả Promise
+//nhưng vì return nên sẽ ở trạng thái onFulFilled
 async function handle1() {
-    return "ahihi";
+    return "ahihi";//return Promise.resolve("ahihi");
 }
 console.log(handle());//Promise.resolve("ahihi");
 console.log(handle1());//Promise.resolve("ahihi");
+handle().then((value) => {
+    console.log(value); // ahihi
+
+})
 handle1().then((value) => {
     console.log(value); // ahihi
 })
@@ -49,7 +56,7 @@ handle1().then((value) => {
 // };
 
 // getData();
-//Nhược điểm của async await là không có hàm xử lý lỗi cụ thể
+//Nhược điểm của async await là không có hàm xử lý lỗi cụ thể => nên phải dùng try-catch
 //Ưu điểm: không cần .then .catch
 
 // let getData = async () => {
@@ -99,14 +106,14 @@ handle1().then((value) => {
 
 //Đừng bao giờ dùng async với các toán tử đồng bộ
 //Demo
-// let x = 0;
-// let handle4 = async () => {
-//     x += 1;
-//     console.log(x);
-//     return 5;// return Promise.resolve(5)
-// }
-// let handle5 = async () => {
-//     x += await handle4();
-//     console.log(x);
-// }
-// handle5();
+let x = 0;
+let handle4 = async () => {
+    x += 1;
+    console.log(x);
+    return 5;// return Promise.resolve(5)
+}
+let handle5 = async () => {
+    x += await handle4();
+    console.log(x);
+}
+handle5();

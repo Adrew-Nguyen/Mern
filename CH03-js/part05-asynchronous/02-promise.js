@@ -6,9 +6,16 @@
 // Một lời hứa cơ bản:
 // VD: Anh hứa sẽ đi Vùng Tàu và mua bánh bông lan trứng muối về cho em
 //                                                        trong tháng 10!!!
-//    - Khi hứa thì phải nghĩ tới kết quả khi trường hợp thất bại và tc.
+//    - Khi hứa thì phải nghĩ tới kết quả khi trường hợp thất bại và thành công.
 //          => Nếu thành công: "niềm tin, 1 nụ hôn".
 //          => Nếu thất bại  : "1 sự thất vọng".
+
+// Một lời hứa sẽ có 3 trạng thái
+// Lưu ý: Chỉ nằm 1 trong 3 trạng thái trong cùng một thời điểm thôi.
+// 1. `Pending`: đang chờ kết quả, đang thực thi, đang thực hiện.
+// 2. `OnFulFilled`: cái Promise sẽ dùng resolve("1 nụ hôn").
+// 3. `OnRejected`: cái Promise sẽ dùng reject("1 sự thất vọng").
+
 
 //TH1: Giả sử: Đầu tháng 10 sếp ép ảnh phải ra Vũng Tàu công tác 2 ngày.
 //==> Rất dễ để mua bông lan trứng muối => giữ được lời hứa.
@@ -21,14 +28,7 @@
 //==> Trạng thái lời hứa của anh sẽ được
 // chuyển từ `Pending` sang `onRejected`
 
-// Một lời hứa sẽ có 3 trạng thái
-// Lưu ý: Chỉ nằm 1 trong 3 trạng thái trong cùng một thời điểm thôi.
-// 1. `Pending`: đang chờ kết quả, đang thực thi, đang thực hiện.
-// 2. `OnFulFilled`: cái Promise sẽ dùng resolve("1 nụ hôn").
-// 3. `OnRejected`: cái Promise sẽ dùng reject("1 sự thất vọng").
-
 //Thực hành.
-
 //Syntax:
 //Cách 1:  new Promise((resolve, reject)=> {})
 //Cách 2:  new Promise(function (resolve, reject) {});
@@ -61,7 +61,7 @@
 // }).catch((error) => {
 //     console.log(`Nếu code chạy được vào đây thì anh ấy không đủ tiền
 //         và lời hứa đã chạm vào reject => code vào catch => error chính
-//         là những gì có trong rejext.`);
+//         là những gì có trong reject.`);
 //     console.log(error);
 // })
 
