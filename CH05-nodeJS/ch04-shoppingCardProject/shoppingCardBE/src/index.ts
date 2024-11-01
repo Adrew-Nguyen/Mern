@@ -1,6 +1,7 @@
 import express from 'express'
 import userRouter from './routes/users.routers'
 import databaseService from './services/database.services'
+import { defaultErrorHandler } from './middlewares/error.middlewares'
 
 // console.log(new Date(2005, 12, 5).toISOString())
 //dùng express tạo server(app)
@@ -17,7 +18,7 @@ app.use(express.json())
 //url hiện tại là http://localhost:3000/users/
 //ý nghĩa server sử dụng router user và với đường đãn là http://localhost:3000/users/
 app.use('/users', userRouter)
-
+app.use(defaultErrorHandler)
 //Muốn app mở port 3000
 app.listen(PORT, () => {
   console.log('Sever BE đang chạy ở PORT: ' + PORT)

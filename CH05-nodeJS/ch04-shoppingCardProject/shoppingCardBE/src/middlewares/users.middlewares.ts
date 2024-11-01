@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express'
 
 // import checkSchema dùng để check schema của một object
 import { checkSchema } from 'express-validator'
-
+import { USERS_MESSAGES } from '~/constants/messages'
 
 import { validate } from '~/utils/validation'
 
@@ -32,10 +32,10 @@ export const registerValidator = validate(
   checkSchema({
     name: {
       notEmpty: {
-        errorMessage: 'Name is required'
+        errorMessage: USERS_MESSAGES.NAME_IS_REQUIRED
       },
       isString: {
-        errorMessage: 'Name must be string'
+        errorMessage: USERS_MESSAGES.NAME_MUST_BE_A_STRING
       },
       trim: true,
       isLength: {
@@ -43,29 +43,31 @@ export const registerValidator = validate(
           min: 1,
           max: 100
         },
-        errorMessage: "Name's length must be between 1 and 100"
+        errorMessage: USERS_MESSAGES.NAME_LENGTH_MUST_BE_FROM_1_TO_100
       }
     },
     email: {
       notEmpty: {
-        errorMessage: 'Email is required'
+        errorMessage: USERS_MESSAGES.EMAIL_IS_REQUIRED
       },
-      isEmail: true,
+      isEmail: {
+        errorMessage: USERS_MESSAGES.EMAIL_IS_INVALID
+      },
       trim: true
     },
     password: {
       notEmpty: {
-        errorMessage: 'Password is required'
+        errorMessage: USERS_MESSAGES.PASSWORD_IS_REQUIRED
       },
       isString: {
-        errorMessage: 'Password must be string'
+        errorMessage: USERS_MESSAGES.PASSWORD_MUST_BE_A_STRING
       },
       isLength: {
         options: {
           min: 8,
           max: 50
         },
-        errorMessage: "Password's length must be between 8 and 50"
+        errorMessage: USERS_MESSAGES.PASSWORD_LENGTH_MUST_BE_FROM_8_TO_50
       },
       isStrongPassword: {
         options: {
@@ -76,22 +78,22 @@ export const registerValidator = validate(
           minSymbols: 1
           // returnScore: true //tra ket qua 1 - 10 de the hien do manh pass word
         },
-        errorMessage: 'Password must be at least 8 charaters, 1 lowercase, 1 uppercase, 1 number and 1 symbol'
+        errorMessage: USERS_MESSAGES.PASSWORD_MUST_BE_STRONG
       }
     },
     confirm_password: {
       notEmpty: {
-        errorMessage: 'Confirm_password is required'
+        errorMessage: USERS_MESSAGES.CONFIRM_PASSWORD_IS_REQUIRED
       },
       isString: {
-        errorMessage: 'Confirm_password must be string'
+        errorMessage: USERS_MESSAGES.CONFIRM_PASSWORD_MUST_BE_A_STRING
       },
       isLength: {
         options: {
           min: 8,
           max: 50
         },
-        errorMessage: "Confirm_password's length must be between 8 and 50"
+        errorMessage: USERS_MESSAGES.CONFIRM_PASSWORD_LENGTH_MUST_BE_FROM_8_TO_50
       },
       isStrongPassword: {
         options: {
@@ -102,7 +104,7 @@ export const registerValidator = validate(
           minSymbols: 1
           // returnScore: true //tra ket qua 1 - 10 de the hien do manh pass word
         },
-        errorMessage: 'Confirm_password must be at least 8 charaters, 1 lowercase, 1 uppercase, 1 number and 1 symbol'
+        errorMessage: USERS_MESSAGES.CONFIRM_PASSWORD_MUST_BE_STRONG
       },
       custom: {
         options: (value, { req }) => {
@@ -118,7 +120,8 @@ export const registerValidator = validate(
         options: {
           strict: true,
           strictSeparator: true //không được viết thiếu dấu cách
-        }
+        },
+        errorMessage: USERS_MESSAGES.DATE_OF_BIRTH_BE_ISO8601
       }
     }
   })

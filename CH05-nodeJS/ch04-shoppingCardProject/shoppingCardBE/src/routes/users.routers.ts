@@ -1,6 +1,7 @@
 import express from 'express'
 import { loginController, registerController } from '~/controllers/users.controllers'
 import { loginValidator, registerValidator } from '~/middlewares/users.middlewares'
+import { wrapAsync } from '~/utils/handlers'
 const userRouter = express.Router() // Dùng epress.Router() để dụng user router.
 
 // Handle: hàm có req, res
@@ -50,7 +51,7 @@ Body: {
     date_of_birth: String có dạng ISO8601
 }
 */
-userRouter.post('/register', registerValidator, registerController)
+userRouter.post('/register', registerValidator, wrapAsync(registerController))
 
 //public nó ra rồi để default lun để chỉ cần ấn tên ra là dùng được luôn
 export default userRouter
