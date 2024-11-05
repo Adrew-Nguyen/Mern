@@ -3,6 +3,9 @@
 
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
+import { resolve } from 'path'
+import { reject } from 'lodash'
+import { TokenPayload } from '~/models/requests/users.requests'
 
 dotenv.config()
 
@@ -33,5 +36,20 @@ export const signToken = ({
   })
 }
 
+//hàm kiểm tra token có khớp chữ ký không và trả về payload của token đó
+export const verifyToken = ({
+  token,
+  privateKey = process.env.JWT_SECRET as string
+}: {
+  token: string
+  privateKey?: string
+}) => {
+  return new Promise<TokenPayload>((resolve, reject) => {
+    jwt.verify(token, privateKey, (error, decode) => {
+      if (error) throw reject(error)
+      else return resolve(decode as TokenPayload)
+    })
+  })
+}
 //Ví dụ
 // signToken({ payLoad: { user_id: '123123', age: 12 }, privateKey: 'ahihi' })

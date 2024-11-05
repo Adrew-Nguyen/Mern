@@ -24,5 +24,22 @@ export const USERS_MESSAGES = {
   //dateOfBirth
   DATE_OF_BIRTH_BE_ISO8601: 'Date of birth must be ISO8601',
   //user
-  EMAIL_OR_PASSWORD_IS_INCORRECT: 'Email or password is incorrect'
+  EMAIL_OR_PASSWORD_IS_INCORRECT: 'Email or password is incorrect',
+  LOGIN_SUCCESS: 'Login successfully',
+  LOGOUT_SUCCESS: 'Logout successfully',
+  REGISTER_SUCCESS: 'Register successfully',
+  //TOKEN
+  ACCESS_TOKEN_IS_REQUIRED: 'Access token is required',
+  REFRESH_TOKEN_IS_REQUIRED: 'Refresh token is required',
+  REFRESH_TOKEN_IS_INVAILD: 'Refresh token is invaild',
+  //VERIFY EMAIL
+  EMAIL_VERIFY_TOKEN_IS_REQUIRED: 'Email verify token is required',
+  EMAIL_VERIFY_TOKEN_IS_INVALID: 'Email verify token is invalid',
+  EMAIL_VERIFY_SUCCESS: 'Email verify successfully',
+
+  USER_NOT_FOUND: 'User not found',
+  EMAIL_HAS_BEEN_VERIFIED: 'Email has been verified',
+  ACCOUNT_HAS_BEEN_BANNED: 'Account has been banned',
+  RESEND_EMAIL_SUCCESS: 'Resend email vetify is successfully',
+  CHECK_EMAIL_TO_RESET_PASSWORD: 'Check email to reset password'
 } as const
