@@ -1,20 +1,32 @@
 import express, { Request, Response } from 'express'
 import {
+  changePasswordController,
   emailVefifyControler,
   forgotPasswordController,
+  getMeController,
   loginController,
   logoutController,
+  refreshTokenController,
   registerController,
-  resendEmailVerifyToken
+  resendEmailVerifyToken,
+  resetPasswordController,
+  updateMeController,
+  verifyForgotPasswordTokenController
 } from '~/controllers/users.controllers'
+import { filterMiddleware } from '~/middlewares/common.middlewares'
 import {
   accessTokenValidator,
+  changePasswordValidator,
   emailVerifyTokenValidator,
+  forgotPasswordTokenValidator,
   forgotPasswordVadidator,
   loginValidator,
   refreshTokenValidator,
-  registerValidator
+  registerValidator,
+  resetPasswordValidator,
+  updateMeValidator
 } from '~/middlewares/users.middlewares'
+import { UpdateMeReqBody } from '~/models/requests/users.requests'
 import { wrapAsync } from '~/utils/handlers'
 const userRouter = express.Router() // Dùng epress.Router() để dụng user router.
 
@@ -118,5 +130,102 @@ method:  post
 bodyL {email: string} 
 */
 userRouter.post('/forgot-password', forgotPasswordVadidator, wrapAsync(forgotPasswordController))
+
+/*desc: verify forgot password token 
+route: kiểm tra forgot_password_token đúng và còn hiệu lực không
+path: users/verify-forgot-password
+method: post
+body:{
+  forgot_password_token: string
+}*/
+userRouter.post(
+  '/verify-forgot-password',
+  forgotPasswordTokenValidator, // kiểm tra forgot_password_token
+  wrapAsync(verifyForgotPasswordTokenController) // xử lý logic
+)
+
+/*desc: reset password
+password: users/resrt-password
+method: post
+body:{
+  password: string
+  confirm_password: string
+  forgot_password_token: string
+}
+*/
+userRouter.post(
+  '/reset-password',
+  forgotPasswordTokenValidator, //kiểm tra forgot_password_token
+  resetPasswordValidator, // kiểm tra passowrd, confirm_pasword
+  wrapAsync(resetPasswordController) // tiến hành đổi mật khẩu
+)
+
+/*desc: get me: get me profile
+ method: post
+ path: users/me
+ headers:{
+  Authorization: "Bearer <access_token>"
+ }
+*/
+userRouter.post('/me', accessTokenValidator, wrapAsync(getMeController))
+
+/*
+des: update profile của user
+path: '/me'
+method: patch
+Headers: {Authorization: Bearer <access_token>}
+body: {
+  name?: string
+  date_of_birth?: string
+  bio?: string // optional
+  location?: string // optional
+  website?: string // optional
+  username?: string // optional
+  avatar?: string // optional
+  cover_photo?: string // optional}
+*/
+
+userRouter.patch(
+  '/me',
+  filterMiddleware<UpdateMeReqBody>([
+    'name',
+    'date_of_birth',
+    'bio',
+    'location',
+    'website',
+    'avatar',
+    'username',
+    'cover_photo'
+  ]),
+  accessTokenValidator, //
+  updateMeValidator, //
+  wrapAsync(updateMeController)
+)
+
+/*
+  des: change password
+  path: '/change-password'
+  method: PUT(PATCH)
+  headers: {Authorization: Bearer <access_token>}
+  Body: {old_password: string, password: string, confirm_password: string}
+*/
+
+userRouter.put('/change-password', accessTokenValidator, changePasswordValidator, wrapAsync(changePasswordController))
+
+/*
+  desc: refresh-token
+  khi ma access-token hết hạn thì dùng chức năng này
+  path: users/refresh-token
+  method: post
+  body:{
+    refresh-token: string
+  }
+*/
+
+userRouter.post(
+  '/refresh-token',
+  refreshTokenValidator, //
+  wrapAsync(refreshTokenController)
+)
 //public nó ra rồi để default lun để chỉ cần ấn tên ra là dùng được luôn
 export default userRouter

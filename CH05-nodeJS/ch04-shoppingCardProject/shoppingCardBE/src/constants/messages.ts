@@ -41,5 +41,27 @@ export const USERS_MESSAGES = {
   EMAIL_HAS_BEEN_VERIFIED: 'Email has been verified',
   ACCOUNT_HAS_BEEN_BANNED: 'Account has been banned',
   RESEND_EMAIL_SUCCESS: 'Resend email vetify is successfully',
-  CHECK_EMAIL_TO_RESET_PASSWORD: 'Check email to reset password'
+  CHECK_EMAIL_TO_RESET_PASSWORD: 'Check email to reset password',
+  FORGOT_PASSWORD_TOKE_IS_RQUIRED: 'Forgot password token is empty',
+  FORGOT_PASSWORD_TOKEN_IS_INVALID: 'Forgot password token is invalid',
+  VERIFY_PASSWORD_TOKEN_IS_SUCCESS: 'Verify forgot password token is successfully',
+  RESET_PASSWORD_SUCCESS: 'Reset password is successfully',
+  GET_ME_SUCCESS: 'Get me successfully',
+  BIO_MUST_BE_A_STRING: 'Bio must be a string',
+  BIO_LENGTH_MUST_BE_LESS_THAN_200: 'Bio length must be less than 200',
+  LOCATION_MUST_BE_A_STRING: 'Location must be a string',
+  LOCATION_LENGTH_MUST_BE_LESS_THAN_200: 'Location length must be less than 200',
+  WEBSITE_MUST_BE_A_STRING: 'Website must be a string',
+  WEBSITE_LENGTH_MUST_BE_LESS_THAN_200: 'Website length must be less than 200',
+  USERNAME_MUST_BE_A_STRING: 'Username must be a string',
+  USERNAME_LENGTH_MUST_BE_LESS_THAN_50: 'Username length must be less than 50',
+  IMAGE_URL_MUST_BE_A_STRING: 'Image url must be a string',
+  IMAGE_URL_LENGTH_MUST_BE_LESS_THAN_400: 'Image url length must be less than 400',
+  UPDATE_PROFILE_SUCCESS: 'Update profile success',
+  USER_NOT_VERIFIED: 'User not verified',
+  USERNAME_ALREADY_EXISTS: 'Username already exists',
+  USERNAME_IS_INVALID:
+    'Username must be a string and length must be 4 - 15, and contain only letters, numbers, and underscores, not only numbers',
+  CHANGE_PASSWORD_IS_SUCCESS: 'Change password is successfully',
+  REFRESH_TOKEN_IS_SUCCESS: 'Refresh token is successfully'
 } as const
