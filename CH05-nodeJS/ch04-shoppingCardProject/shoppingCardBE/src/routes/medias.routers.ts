@@ -1,12 +1,20 @@
-import express, { Router } from 'express'
-import { UPLOAD_DIR } from '~/constants/dir'
-import { uploadSingleImageController } from '~/controllers/medias.controllers'
+import { Router } from 'express'
+import { uploadImageController, uploadVideoController } from '~/controllers/medias.controllers'
+import { accessTokenValidator } from '~/middlewares/users.middlewares'
 import { wrapAsync } from '~/utils/handlers'
+
+//Create Router media
 const mediaRouter = Router()
 
-//setup route
-mediaRouter.post('/upload-image', wrapAsync(uploadSingleImageController))
-//Cach 1:  mediaRouter.use('/', express.static(UPLOAD_DIR))
+//Setup route
+
+//Upload image
+mediaRouter.post('/upload-image', accessTokenValidator, wrapAsync(uploadImageController))
+
+//Upload video
+mediaRouter.post('/upload-video', accessTokenValidator, wrapAsync(uploadVideoController))
+
+//Cach 1:  mediaRouter.use('/', express.static(UPLOAD_IMAGE_DIR))
 //Cách 2:
 
 export default mediaRouter
