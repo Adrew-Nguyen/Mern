@@ -36,36 +36,40 @@
 // //Tạo bối cảnh
 // //-- Vai 1: Tác nhân ngoại cảnh(ví dụ: Chúa).
 // // Giả sử túi tiền có 1000.
-// let wallet = 1000;
+let wallet = 1000;
 
 
 // //-- Vai 2: Anh trai hứa cô gái
 // //"Anh hứa sẽ mua cho em chiếc cà rá 5000$"
-// let p1 = new Promise((resolve, reject) => {
-//     if (wallet >= 5000) {
-//         resolve("1 nụ hôn");
-//     } else {
-//         reject("1 sự thất vọng");
-//     }
-// })
+let p1 = new Promise((resolve, reject) => {
+    if (wallet >= 5000) {
+        resolve("1 nụ hôn");
+    } else {
+        reject("1 sự thất vọng");
+    }
+})
 
+
+console.log('Adrew-Ng Second');
 // //--Vai 3: cô gái nhận lời hứa
 // //nếu thành công thì  `.then`
 // //nếu thất thì thì `.catch`
-// p1.then((value) => {
-//     //value: giá trị bên resolve
-//     console.log(`Nếu code chạy vào đây, nghĩa anh ấy đã đủ tiền mua nhẫn
-//         và lời hứa đã chạm được vào resolve => code vào then =>
-//             value là những gì nằm trong resolve`);
-//     console.log(value);
-// }).catch((error) => {
-//     console.log(`Nếu code chạy được vào đây thì anh ấy không đủ tiền
-//         và lời hứa đã chạm vào reject => code vào catch => error chính
-//         là những gì có trong reject.`);
-//     console.log(error);
-// })
+p1.then((value) => {
+    //value: giá trị bên resolve
+    console.log(`Nếu code chạy vào đây, nghĩa anh ấy đã đủ tiền mua nhẫn
+        và lời hứa đã chạm được vào resolve => code vào then =>
+            value là những gì nằm trong resolve`);
+    console.log(value);
+}).catch((error) => {
+    console.log(`Nếu code chạy được vào đây thì anh ấy không đủ tiền
+        và lời hứa đã chạm vào reject => code vào catch => error chính
+        là những gì có trong reject.`);
+    console.log(error);
+})
 
-// wallet = 6000;
+console.log('Adrew-Ng Second');
+
+wallet = 6000;
 // //Thì cũng vào catch vì cô gái đã kiếm chứng rồi.
 // //==> vẫn là thất hứa thui.
 
@@ -256,14 +260,14 @@ let getArticle = () => {
 
 //nếu hai tác vụ làm độc lập thì chỉ cần tốn 3s để hoàn thành 2 task
 
-//Tổng thể là không đồng bô của 2 task nhưng bên trong của nó  
+//Tổng thể là không đồng bô của 2 task nhưng bên trong của nó
 // vẫn đồng bộ trong nội bộ.
 // getProfile().then((value) => {
 //     console.log(value);
 // });
 
 // getArticle().then((value) => {
-//     console.log(value);  
+//     console.log(value);
 // })
 
 //nếu bây h anh muốn có nguyên nhân kết quả
@@ -280,9 +284,9 @@ let getArticle = () => {
 //==> tránh được promise hell
 // nếu return thì tìm then gần nhất còn throw thì tìm catch gần nó nhất.
 
-getProfile().then((value) => {
-    console.log(value);
-    return getArticle();
-}).then((value) => {
-    console.log(value);
-})
+// getProfile().then((value) => {
+//     console.log(value);
+//     return getArticle();
+// }).then((value) => {
+//     console.log(value);
+// })

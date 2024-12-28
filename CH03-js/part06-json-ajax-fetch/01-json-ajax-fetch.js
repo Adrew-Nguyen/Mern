@@ -3,11 +3,11 @@
 /**
  * Json: Javascript object notation.
  * Json: một chuỗi được viết dưới dạng JS object.
- * Công dụng: dùng để lưu trữ và trao đổi dữ liệu
- *                              giữa các ngôn ngữ khác.
+ * Công dụng: dùng để lưu trữ và trao đổi dữ liệu giữa các ngôn ngữ khác.
  * Có thể lưu trữ dữ liệu các dạng: number, String, Boolean, array, object, null.
  * Có hai thao tác chính: `Json.parse` và `Json.stringify`.
- * Không lưu trữ function của object.*/
+ * Không lưu trữ function của object.
+ * */
 //**Lưu ý: Server chỉ lưu chuỗi thôi.
 
 //Demo JSON
@@ -38,9 +38,9 @@ console.log(myJson);
 
 //Đoán đáp án
 let arr = ["cam", 22, 'chuối', "ổi"];
-//'["cam", 22, "chuối", "ổi"]'
 console.log(JSON.stringify(arr));
-let a = 1; 
+//'["cam", 22, "chuối", "ổi"]'
+let a = 1;
 console.log(JSON.stringify(a)); // 1 nhưng thật chất là '1'
 let str = "ahihi";
 console.log(JSON.stringify(str));//"ahihi" và thức thể nó '"ahihi"'

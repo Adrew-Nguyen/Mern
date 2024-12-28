@@ -1,8 +1,7 @@
 // Class là khuôn.
 // Bên trong class có constructor(phễu), properties, method.
 // class sẽ dùng constructor để tạo ra đối tượng(Object).
-
-//Lưu ý : trong JS hàm sinh ra trước class
+// Lưu ý : trong JS hàm sinh ra trước class
 
 class User {
   constructor(fullname) {
@@ -136,7 +135,6 @@ class Button {
   constructor(value) {
     this.value = value;
   }
-
   click() {
     console.log("Giá trị là " + this.value);
   }
@@ -201,12 +199,10 @@ btn{
 //   constructor(value) {
 //     this.value = value;
 //   }
-
 //   click = () => {
 //     console.log("Giá trị là " + this.value);
 //   }
 // }
-
 // let btn2 = new Button2("Ahihi");
 // setTimeout(btn2.click, 3000);
 
@@ -214,7 +210,7 @@ btn{
 // trước khi có class thì chúng ta chỉ có constructor function mà thôi
 // việc kế thừa chắc chắn không phải thông qua từ khóa "extends"
 
-//
+
 class Animal {
   constructor(name) {
     this.name = name;
@@ -249,20 +245,19 @@ class Rabbit extends Animal {
     }, 1000); //đợi 1s ròi đợi hàm stop của cha
   }
 }
-
 let yellowRabbit = new Rabbit("yellowRabbit");
-// yellowRabbit.hide();//yellowRabbit hides!!!
-// yellowRabbit.run();
-// yellowRabbit.stop();//yellowRabbit stands still
-// ani.hide();// không chay được vì ani là của animal
-
 /*
-yellowTabbit{
-name: "yellowRabbit",
-speed: 0,
-[[Prototype]]: Rabbit.protutype => class Animal,
+yellowRabbit{
+    name: "yellowRabbit",
+    speed: 0,
+    [[Prototype]]: Rabbit.protutype => class Animal,
 }
 */
+yellowRabbit.hide();//yellowRabbit hides!!!
+yellowRabbit.run(yellowRabbit.speed); //yellowRabbit runs with speed 0
+yellowRabbit.stop();//yellowRabbit stands still
+// ani.hide();// không chay được vì ani là của animal
+
 
 // class field là phiên bản lý thuyết của prop
 class Animal2 {
@@ -278,21 +273,18 @@ class Rabbit2 extends Animal2 {
     super();
   }
 }
-
 let an2 = new Animal2(); //isAnimal
 let rb2 = new Rabbit2(); // isAnimal
-console.log(rb2);
-
+console.log(rb2); // Rabbit2 { name: 'isRabbit' }
 //giữa các object thì prop có tính chát override giữa các obj
 //class field không kế thừa, không có override, chỉ có overwrite
 
 //8- static
 //static: tĩnh || không phân bảng
-//trong java static có nghĩa prop thuộc về class, instance được phép truy cập và sử dụng,
-//dùng chung
-
-//trong JS static nghĩa là prop 'chỉ' thuộc về class => instance không được phép
-//truy cập
+//trong java static có nghĩa prop thuộc về class,
+//instance được phép truy cập và sử dụng, dùng chung
+//trong JS static nghĩa là prop 'chỉ' thuộc về class 
+// => instance không được phép truy cập
 
 class User9 {
   name = "Điệp";
@@ -344,15 +336,15 @@ console.log(articleList);
 //ReadOnly
 //nếu khai báo get mà k có set, thì nó sẽ thành readOnly, không đổi giá trị đc
 //nếu không có set/get thì nó tự tạo , sẽ gán bt
-//các dev quy ước tên _ ở trước là private chỉ dùng trong class, nên truy cập bằng get/set
-//không nên . tới
+//các dev quy ước tên _ ở trước là private chỉ dùng trong class, 
+// nên truy cập bằng get/set không nên . tới
 //việc quy ước này không đảm bảo được ngôn ngữ, chỉ là quy ước
 
-class CoffeeMachine{
-  constructor(power){
+class CoffeeMachine {
+  constructor(power) {
     this._power = power;
   }
-  get power(){
+  get power() {
     return this._power;
   }
 }
@@ -361,4 +353,4 @@ let cfm = new CoffeeMachine(100);
 cfm.power = 1000; // không có setter nên không thay đổi đc
 cfm._power = 1000; //thoải mái(nhưng không nên);
 console.log(cfm.power);
-//dấu '#' khai báo private trong cấp độ ngôn ngữ lun.
+//dấu '_' khai báo private trong cấp độ ngôn ngữ lun.

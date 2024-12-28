@@ -1,5 +1,4 @@
 // import 3 interface giúp mô tả req, res, next do express cung cấp.
-import { verify } from 'crypto'
 import { Request, Response, NextFunction } from 'express'
 // import checkSchema dùng để check schema của một object
 import { check, checkSchema, ParamSchema } from 'express-validator'

@@ -7,13 +7,14 @@
  *                          chứa tiền thân của nó(thằng tạo nó || cha nó).
  *          Lưu ý: Ta không thể .[[Prototype]] được
  *                 vì vậy muốn truy cập vào [[Prototype]] thì phải thông qua
- *                 accessor property có tên là __proto__.
+ *                 accessor property(vừa là get vừa là set) có tên là __proto__.
  *          1. [[Prototype]] != __proto__
  */
 
 /**Lưu ý : "__proto__"
  * Trước ES6(2015) không có cách nào truy cập vào [[Prototype]] cả
- * hầu hết các trình duyệt thêm vào accessor property "__proto__" => JS không cung cấp nhưng trình duyệt cung cấp.
+ * hầu hết các trình duyệt thêm vào accessor property "__proto__" 
+ * => JS không cung cấp nhưng trình duyệt cung cấp.
  * '__proto__' : không phải là cách truy cập chính thống của JS.
  * '__proto__' : tính tới thời điểm hiện tại vẫn chưa bị loại bỏ.
  * '__proto__' : có thể thay thế bằng:
@@ -55,7 +56,7 @@ congido.ear = "short";
  * Thay vào đó nó sẽ tạo một biến 'ear: "short"' ở chính lớp của nó => 'override'.
  * Khi nó sài thì nó sẽ nhìn từ bản thân nó ra "Nào gần nhất sẽ dùng nó luôn" 
  *            vì vậy nó sẽ sài 'ear: "short"'.
- * */ 
+ * */
 console.log(congido.ear); // short
 console.log(pinkRabbit.ear); //long
 
@@ -69,17 +70,14 @@ console.log(pinkRabbit.ear); //short
 let student = {
   lastName: "Điệp", // value property
   firstName: "Lê", // value property
-
   //accessor property
   get fullname() {
     return this.firstName + " " + this.lastName;
   },
-
   set fullname(newName) {
     [this.firstName, this.lastName] = newName.split(" ");
   },
 };
-
 let user = {
   isUser: true,
   __proto__: student,
@@ -91,5 +89,7 @@ console.log(user);//getter
 
 //4.'fullname' trong student có bị thay đổi không?
 // => Không bị ảnh hưởng và có 2 hướng giải thích cho trường hợp này:
-// 1. Tự tạo thêm hai biến 'firsname:"Nhât"' và 'lastname: "Trường"' trong phạm vi của nó để ngăn chặn ảnh hưởng tới hằng cha.
-// 2. Trong hàm set có this mà this là ám chỉ người gọi nó => this đây là user => user sẽ tạo ra biến firstname và lastname để lưu trữ.
+// 1. Tự tạo thêm hai biến 'firsname:"Nhât"' và 'lastname: "Trường"'
+//  trong phạm vi của nó để ngăn chặn ảnh hưởng tới hằng cha.
+// 2. Trong hàm set có this mà this là ám chỉ người gọi nó
+//  => this đây là user => user sẽ tạo ra biến firstname và lastname để lưu trữ.

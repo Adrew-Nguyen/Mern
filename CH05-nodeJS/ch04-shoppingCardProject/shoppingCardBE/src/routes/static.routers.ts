@@ -1,5 +1,9 @@
 import { Router } from 'express'
-import { serveImageController, serveVideoStreamController } from '~/controllers/static.controllers'
+import {
+  serveImageController,
+  serveVideoController,
+  serveVideoStreamController
+} from '~/controllers/static.controllers'
 const staticRouter = Router()
 
 staticRouter.get('/image/:namefile', serveImageController)

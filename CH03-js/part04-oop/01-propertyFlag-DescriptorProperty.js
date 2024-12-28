@@ -7,16 +7,17 @@
  *      4. configurable:
  *                  + "true" thì prop có thể cập nhật các là cờ được.
  *                  + "false" thì - không thể cập nhật được enumerable nữa.
- *                                - writeble thì từ T -> F thì được những F -> thì không được.
+ *                                - writeble thì từ T -> F thì được những F -> T thì không được.
  *                                - value thì dựa vào trạng thái hiện tại của writable.
  * Lưu ý: Bất cứ property nào của object cũng đều sở hữu 4 lá cờ (1 bộ cờ)
  *              và có tên là PropertyFlag- DecriptorProperty.
  */
 
 /**(Method cần nhớ)
- * Tất cả các phương thức này là của dối tượng 'Object'.
+ * Tất cả các phương thức này là của đối tượng 'Object'.
  * .getOwnPropertyDescriptor(o: any, p: PropertyKey)
- *    - return Object chứa bộ cờ của 'o' || undefined(nếu không có thuộc tính đó).
+ *    - return Object chứa bộ cờ cần xử lý theo 'p' của 'o' 
+ *                            || undefined(nếu không có thuộc tính đó).
  *    - 'o' là 'Object' cần xử lý.
  *    - 'p' là 'String' chứa prop cần xử lý của 'o'.
  *
@@ -39,7 +40,7 @@
  *        + 'prop' là 'key'
  *        + 'Object chứa mô tả bộ cờ' là 'value'.
  *
- * - Lưu ý: Đối với .definedProperty() và .definedProperties() khi dùng để tạo prop thì đối
+ * - Lưu ý: Đối với .definedProperty() và .definedProperties() khi dùng để tạo prop thì 
  *            đối với những lá cờ nào không được liệt kê thì sẽ có giá trị là 'false'.
  */
 
@@ -49,19 +50,21 @@ let profile = {
   age: 18,
 };
 // 1. Ta có thể lấy ra xem bộ cờ của 1 property bất kỳ trong object.
-console.log(Object.getOwnPropertyDescriptor(profile, "fname")); // Trả ra một object chứa các lá cờ.
+console.log(Object.getOwnPropertyDescriptor(profile, "fname"));
+// Trả ra một object chứa các lá cờ.
 // {value: 'Điệp', writable: true, enumerable: true, configurable: true}
 
-// 2. Cập nhật / thêm 1 property và bộ cờ của nó.
+// 2. Cập nhật || thêm 1 property vào bộ cờ của nó.
 // 2.1 Cập nhật 1 bộ cờ của 1 property trong một object.
-// Ex: Cập nhật 'writable' cho 'fname' của 'profile' từ 'True' thành 'False' => Không thể cập nhật value của fname được nữa.
+// Ex: Cập nhật 'writable' của 'fname' của 'profile' từ 'True' thành 'False' 
+// => Không thể cập nhật value của fname được nữa.
 Object.defineProperty(profile, "fname", {
   writable: false,
 });
 profile.fname = "Trường";
 // lệnh này vẫn chạy
-// Nhưng 'writable: false' => nên không thể cập nhật được value => không làm thay đổi gì cả
-//(Lưu ý: không đưa ra bug gì cả).
+// Nhưng 'writable: false' => nên không thể cập nhật được value 
+// => không làm thay đổi gì cả => (Lưu ý: không đưa ra bug gì cả).
 console.log(profile.fname); //Điệp
 
 //2.2 Tạo mới thuộc tính kèm bộ cờ của một property trong một object bất kì:
@@ -110,15 +113,16 @@ console.log(Object.getOwnPropertyDescriptor(profile, "major"));
 
 // Demo const một prop trong một object (vừa fix writable và configurable là false):
 let tmp = {};
-Object.defineProperty(tmp, "job", {writable: false, configurable: false});
+Object.defineProperty(tmp, "job", { writable: false, configurable: false });
 
-// 3. Ta có thể thêm / cập nhật nhiều property kèm bộ cờ "cùng lúc".
+// 3. Ta có thể thêm || cập nhật nhiều property kèm bộ cờ "cùng lúc".
 // 3.1 Thêm thuộc tính.
 // Lưu ý: những bộ cờ nào không liệt kê thì bị FALSE.
 Object.defineProperties(profile, {
   point: { value: 9, writable: true },
   student_id: { value: "SE111", writable: true },
 });
+console.log(Object.getOwnPropertyDescriptors(profile));
 
 //3.2 Cập nhật thuộc tính
 Object.defineProperties(profile, {
@@ -147,12 +151,12 @@ console.log(Object.getOwnPropertyDescriptors(profile));
  * những thằng này rất ít dùng trong dự án nhưng cũng rất là nhanh tiện.
  * 1. Object.preventExtensions(obj)
     *    Ngăn cấm thêm thuộc tính mới vào object
-    *    muốn biết 1 object có đang preventExtensions không  ta dùng Object.isExtensible(object)
+    *    muốn biết 1 object có đang preventExtensions không ta dùng Object.isExtensible(object)
 
  * 2. Object.seal(obj)
     *    Ngăn cấm thêm mới/xóa thuộc tính object.
     *    set configurable : false cho tất cả các prop.
-    *    muốn biết 1 object có đang seal không  ta dùng Object.isSealed(object).
+    *    muốn biết 1 object có đang seal không ta dùng Object.isSealed(object).
 
  * 3. Object.freeze(obj)
     *    Ngăn cấm thêm mới/xóa/thay đổi thuộc tính object.

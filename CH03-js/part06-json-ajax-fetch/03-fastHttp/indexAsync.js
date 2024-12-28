@@ -30,7 +30,7 @@ class FastHttp {
 }
 
 let instance = new FastHttp();
-;(async () => {
+; (async () => {
     try {
         let data = await instance.put(`${baseURL}/10`, { name: "Tài chó điên 2" });
         console.log(data);

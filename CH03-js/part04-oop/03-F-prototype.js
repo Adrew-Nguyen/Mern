@@ -61,7 +61,6 @@ Car.prototype = factory;
 let rollRoyce = new Car("RR", "1 tỷ 2");
 // **Có khả năng kế thừa cả object khác.
 // JS không đảm bảo constructor nếu như ta chủ động thay đổi prototype của constructor.
-
 /*
 rollRoyce{
     name: "RR",

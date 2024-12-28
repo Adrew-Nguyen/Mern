@@ -98,7 +98,8 @@ let promotionBoy3 = {
   },
 };
 
-// promotionBoy3.showName1();
+promotionBoy3.showName1();
+promotionBoy3.showName();
 
 // m : fd > fe > this
 // Cannot read properties of undefined (reading 'nickName')
